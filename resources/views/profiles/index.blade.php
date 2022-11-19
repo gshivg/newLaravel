@@ -4,7 +4,7 @@
 <div class="container">
     <div class="row">
         <div class="col-3 p-5">
-            <img src="https://res.cloudinary.com/crunchbase-production/image/upload/c_lpad,f_auto,q_auto:eco,dpr_1/ikqra03zdnggljdu5vv0"
+            <img src="/svg/logo_darkbg.svg"
                 class="rounded-circle" style="height: 150px;">
         </div>
         <div class="col-9 pt-5">
@@ -26,11 +26,12 @@
         @foreach($user->posts as $post)
 
         <div class="col-4 pt-3 pb-2">
-            <img class="w-100"
-                src="/storage/{{ $post->image }}">
+            <a href="/p/{{ $post->id }}">
+                <img class="w-100" src="/storage/{{ $post->image }}">
+            </a>
         </div>
         @endforeach()
-        
+
     </div>
 </div>
 @endsection
