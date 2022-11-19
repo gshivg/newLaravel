@@ -4,14 +4,20 @@
 <div class="container">
     <div class="row">
         <div class="col-3 p-5">
-            <img src="/svg/logo_darkbg.svg"
-                class="rounded-circle" style="height: 150px;">
+            <img src="/svg/logo_darkbg.svg" class="rounded-circle" style="height: 150px;">
         </div>
         <div class="col-9 pt-5">
             <div class="d-flex justify-content-between align-items-baseline">
                 <h1>{{ $user->username }}</h1>
-                <a href="/p/create/">Add New Post</a>
+                @can('update', $user->profile)
+                <a href="/p/create">Add New Post</a>
+                @endcan
+
             </div>
+            @can('update', $user->profile)
+            <a href="/profile/{{$user->id}}/edit">edit profile</a>
+            @endcan
+
             <div class="d-flex pt-3">
                 <div class="pr-5"><strong>{{ $user->posts->count() }}</strong> posts</div>
                 <div class="pr-5"><strong>23k</strong> following</div>
