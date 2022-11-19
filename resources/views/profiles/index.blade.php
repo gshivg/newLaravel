@@ -10,10 +10,10 @@
         <div class="col-9 pt-5">
             <div class="d-flex justify-content-between align-items-baseline">
                 <h1>{{ $user->username }}</h1>
-                <a href="#">Add New Post</a>
+                <a href="/p/create/">Add New Post</a>
             </div>
             <div class="d-flex pt-3">
-                <div class="pr-5"><strong>153</strong> posts</div>
+                <div class="pr-5"><strong>{{ $user->posts->count() }}</strong> posts</div>
                 <div class="pr-5"><strong>23k</strong> following</div>
                 <div class="pr-5"><strong>212</strong> followers</div>
             </div>
@@ -23,15 +23,14 @@
         </div>
     </div>
     <div class="row pt-5">
-        <div class="col-4">
-            <img class="w-100" src="https://png.pngtree.com/element_our/20200609/ourlarge/pngtree-technology-square-background-image_2234814.jpg">
+        @foreach($user->posts as $post)
+
+        <div class="col-4 pt-3 pb-2">
+            <img class="w-100"
+                src="/storage/{{ $post->image }}">
         </div>
-        <div class="col-4">
-            <img class="w-100" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ_FYCHjNaHVfrznRO66le-L3UJEx5HsnIAZQ&usqp=CAU">
-        </div>
-        <div class="col-4">
-            <img class="w-100" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRLn3zuUmstmpWcXfgEz98-X61q9Mx0nmYHTw&usqp=CAU">
-        </div>
+        @endforeach()
+        
     </div>
 </div>
 @endsection
