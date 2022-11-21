@@ -9,11 +9,11 @@
         <div class="col-9 pt-5">
             <div class="d-flex justify-content-between align-items-baseline">
                 <div class="d-flex align-items-center pb-2">
-                    <div class="h4">{{ $user->username }}</div>
+                    <div class="h4">{{ $user->profile->title }}</div>
                     <follow-button user-id="{{ $user->id }}" follows="{{ $follows }}"></follow-button>
                 </div>
                 @can('update', $user->profile)
-                <a href="/p/create">Add New Post</a>
+                    <a href="/p/create">Add New Post</a>
                 @endcan
 
             </div>
@@ -22,12 +22,12 @@
             @endcan
 
             <div class="d-flex pt-3">
-                <div class="pr-5"><strong>{{ $user->posts->count() }}</strong> posts</div>
-                <div class="pr-5"><strong>{{ $user->profile->followers->count() }}</strong> following</div>
-                <div class="pr-5"><strong>{{ $user->following->count() }}</strong> followers</div>
+                <div class="pr-5"><strong>{{ $postCount }}</strong> posts</div>
+                <div class="pr-5"><strong>{{ $followerCount }}</strong> following</div>
+                <div class="pr-5"><strong>{{ $followingCount }}</strong> followers</div>
             </div>
-            <div class="pt-3 font-weight-bold">{{ $user->profile->title }}</div>
-            <div>{{ $user->profile->description }}</div>
+            {{-- <div class="pt-3 font-weight-bold">{{ $user->profile->title }}</div> --}}
+            <div class="pt-2">{{ $user->profile->description }}</div>
             <div><a href="freeCodeCamp.org">{{ $user->profile->url ?? 'N/A' }}</div>
         </div>
     </div>
