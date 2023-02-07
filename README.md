@@ -1,1 +1,1 @@
-This is my first Laravel project. It is an instagram clone, made by following coder's tape tutorial on freeCodeCamp.
+This is my first Laravel project. It is an instagram clone, made by following Coder's Tape tutorial on freeCodeCamp.
